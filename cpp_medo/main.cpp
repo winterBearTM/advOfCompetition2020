@@ -4,6 +4,6 @@
 int main()
 {
   runDay1Task1();
-  //runDay1Task2();
+  runDay1Task2();
   return 0;
 }
