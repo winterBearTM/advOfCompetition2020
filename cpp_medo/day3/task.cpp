@@ -1,7 +1,6 @@
 //
 // Created by Tadej Medved on 11/12/2020.
 //
-
 #include "task.h"
 
 uint32_t walkSlopes(uint32_t dwStepX, uint32_t dwStepY)
