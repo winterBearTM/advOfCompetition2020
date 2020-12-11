@@ -91,7 +91,11 @@ uint32_t runDay2Task2()
 
   while (std::getline(fileHandle, strCurrLine))
   {
-    parsePwdEntry(strCurrLine, dwFirstOcc, dwSecondOcc, cSearched, strPwd);
+    parsePwdEntry(strCurrLine,
+                  dwFirstOcc,
+                  dwSecondOcc,
+                  cSearched,
+                  strPwd);
 
     bValidPwd = false;
     if (dwFirstOcc < strPwd.size())
