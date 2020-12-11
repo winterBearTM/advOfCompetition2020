@@ -8,8 +8,6 @@
 #include <fstream>
 #include <string>
 
-#define READ_BUFF_SIZE 256
-
 /**
  * Reads file and based on newline reads integers (32-bit)
  * from file and returns them in vector return paramter.

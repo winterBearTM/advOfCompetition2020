@@ -4,7 +4,7 @@
 
 #include "task.h"
 
-void runDay1Task1()
+uint32_t runDay1Task1()
 {
   const char *c_pcInputFilePath = "../day1/input.txt";
 
@@ -44,12 +44,10 @@ void runDay1Task1()
   }
 
   uint32_t dwAns = dwCurrNumA * dwCurrNumB;
-  printf("%d\n", dwAns);
-
-  printf("Finished\n");
+  return dwAns;
 }
 
-void runDay1Task2()
+uint32_t runDay1Task2()
 {
   const char *c_pcInputFilePath = "../day1/input.txt";
 
@@ -91,7 +89,5 @@ void runDay1Task2()
   }
 
   uint32_t dwAns = dwNumA * dwNumB * dwNumC;
-  printf("%d\n", dwAns);
-
-  printf("Finished\n");
+  return dwAns;
 }

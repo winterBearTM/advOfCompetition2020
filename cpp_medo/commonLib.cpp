@@ -19,5 +19,4 @@ void readListOfIntsFromFile(const char *c_pcFilePath,
   }
 
   fileHandle.close();
-
 }
