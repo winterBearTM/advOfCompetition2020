@@ -1,4 +1,4 @@
-package advents.day1
+package advents
 
 import utility.FileUtility.Companion.readFile
 class Day1 {
