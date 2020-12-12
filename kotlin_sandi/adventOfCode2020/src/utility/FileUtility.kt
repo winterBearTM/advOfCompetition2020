@@ -1,5 +1,6 @@
 package utility
 
+import data.Passport
 import data.PasswordCracker
 import java.io.File
 
@@ -32,6 +33,22 @@ class FileUtility {
             }
 
             return map.toTypedArray()
+        }
+
+        fun readFilePassport(filePath: String): MutableList<Passport> {
+            val list = mutableListOf<Passport>()
+            var passport = Passport()
+            File("src/input/$filePath").readLines().forEach {
+                passport.parse(it)
+                if (it.isEmpty()) {
+                    list.add(passport)
+                    passport = Passport()
+                }
+            }
+
+            list.add(passport)
+
+            return list
         }
     }
 }
