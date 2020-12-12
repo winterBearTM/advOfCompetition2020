@@ -10,6 +10,8 @@ int main()
 {
   uint32_t dwSolution;
 
+  auto startTickFull = std::chrono::steady_clock::now();
+
   auto startTick = std::chrono::steady_clock::now();
   dwSolution = runDay1Task1();
   auto endTick = std::chrono::steady_clock::now();
@@ -69,6 +71,10 @@ int main()
   endTick = std::chrono::steady_clock::now();
   elapsed = std::chrono::duration_cast<std::chrono::microseconds>(endTick - startTick);
   printf("Solution day5_task2: %d (%ld us)\n", dwSolution, elapsed);
+
+  auto endTickFull =  std::chrono::steady_clock::now();
+  auto elapsedFull = std::chrono::duration_cast<std::chrono::milliseconds>(endTickFull - startTickFull);
+  printf("All tasks: %ld ms\n", elapsedFull);
 
   return 0;
 }
