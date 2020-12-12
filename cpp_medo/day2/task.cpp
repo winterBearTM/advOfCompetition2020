@@ -23,7 +23,7 @@ void parsePwdEntry(std::string strRaw,
   dwParamA = std::stoi(strMin);
 
   dwStartIdx = dwChIdx + 1;
-  for (dwChIdx; dwChIdx < strRaw.size(); dwChIdx++)
+  for (; dwChIdx < strRaw.size(); dwChIdx++)
   {
     if (strRaw.at(dwChIdx) == ' ')
     {
