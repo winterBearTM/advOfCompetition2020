@@ -24,5 +24,14 @@ class FileUtility {
 
             return list
         }
+
+        fun readFile2D(filePath: String): Array<Array<Char>> {
+            val map = mutableListOf<Array<Char>>()
+            File("src/input/$filePath").readLines().forEach {
+                map.add(it.toCharArray().toTypedArray())
+            }
+
+            return map.toTypedArray()
+        }
     }
 }
