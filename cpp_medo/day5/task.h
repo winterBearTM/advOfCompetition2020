@@ -4,9 +4,9 @@
 #pragma once
 
 #include <stdint.h>
-#include <string>
 #include <fstream>
+#include <string>
 #include <vector>
 
-uint32_t runDay4Task1();
-uint32_t runDay4Task2();
+uint32_t runDay5Task1();
+uint32_t runDay5Task2();
