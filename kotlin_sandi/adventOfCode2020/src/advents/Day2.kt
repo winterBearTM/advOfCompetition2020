@@ -2,12 +2,12 @@ package advents
 
 import utility.FileUtility.Companion.readFilePassword
 
-class Day2() {
-    fun part1(): Int {
+class Day2(): AdventDay() {
+    override fun part1(): Int {
         return calculateValidPasswords(true)
     }
 
-    fun part2(): Int {
+    override fun part2(): Int {
         return calculateValidPasswords(false)
     }
 

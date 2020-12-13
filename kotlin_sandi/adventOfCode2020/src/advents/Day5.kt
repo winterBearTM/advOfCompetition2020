@@ -1,10 +1,9 @@
 package advents
 
-import data.BoardingSeat
 import utility.FileUtility
 
-class Day5 {
-    fun part1(): Int {
+class Day5 : AdventDay() {
+    override fun part1(): Int {
         val list = FileUtility.readFileBoardingSeats("day5_input")
 
         var maxId = -1
@@ -19,10 +18,10 @@ class Day5 {
         return maxId
     }
 
-    fun part2(): Int {
+    override fun part2(): Int {
         val list = FileUtility.readFileBoardingSeats("day5_input")
 
-        var listOfIds = mutableListOf<Int>()
+        val listOfIds = mutableListOf<Int>()
 
         for (a in list) {
             listOfIds.add(a.getSeatID())
