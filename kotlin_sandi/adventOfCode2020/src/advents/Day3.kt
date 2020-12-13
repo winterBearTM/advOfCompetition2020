@@ -64,8 +64,18 @@ class Day3() : AdventDay() {
         return FileUtility.readFile2D("day3_input")
     }
 
-    override fun calculateResults(day: String) {
-        println("$day result first part: ${part1()}")
-        println("$day result second part: ${part2Long()}")
+    override fun calculateResults(day: String): Long {
+        val part1TimerStart = System.currentTimeMillis()
+        print("$day result first part: ${part1()}")
+        val part1Timer = System.currentTimeMillis() - part1TimerStart
+        println(", execution time = $part1Timer ms")
+        val part2TimerStart = System.currentTimeMillis()
+        print("$day result second part: ${part2Long()}")
+        val part2Timer = System.currentTimeMillis() - part2TimerStart
+        println(", execution time = $part2Timer ms")
+        val totalTime = part1Timer + part2Timer
+        println("$day total time: $totalTime ms")
+
+        return totalTime
     }
 }
