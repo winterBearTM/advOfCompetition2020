@@ -2,12 +2,12 @@ package advents
 
 import utility.FileUtility
 
-class Day4() {
-    fun part1(): Int {
+class Day4(): AdventDay()  {
+    override fun part1(): Int {
         return validatePassports(true)
     }
 
-    fun part2(): Int {
+    override fun part2(): Int {
         return validatePassports(false)
     }
 

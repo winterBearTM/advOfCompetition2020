@@ -60,5 +60,23 @@ class FileUtility {
 
             return list
         }
+
+        fun readFileGroupAnswers(filePath: String): MutableList<MutableList<String>> {
+            val list = mutableListOf<MutableList<String>>()
+            var innerList = mutableListOf<String>()
+            File("src/input/$filePath").readLines().forEach {
+                if (it.isNotEmpty()) {
+                    innerList.add(it)
+                } else {
+                    list.add(innerList)
+                    innerList = mutableListOf<String>()
+                }
+
+            }
+
+            list.add(innerList)
+
+            return list
+        }
     }
 }
