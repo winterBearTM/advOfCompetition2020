@@ -1,7 +1,6 @@
 //
-// Created by Tadej Medved on 08/12/2020.
+// Created by Tadej Medved on 11/12/2020.
 //
-
 #pragma once
 
 #include <stdint.h>
@@ -10,5 +9,5 @@
 #include <vector>
 #include "../commonLib.h"
 
-uint32_t runDay1Task1();
-uint32_t runDay1Task2();
+uint32_t runDay2Task1();
+uint32_t runDay2Task2();
