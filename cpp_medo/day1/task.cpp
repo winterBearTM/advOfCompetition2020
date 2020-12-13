@@ -6,7 +6,7 @@
 
 uint32_t runDay1Task1()
 {
-  const char *c_pcInputFilePath = "../day1/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day1.txt";
 
   std::vector<uint32_t> vectData;
   readListOfIntsFromFile(c_pcInputFilePath, vectData);
@@ -49,7 +49,7 @@ uint32_t runDay1Task1()
 
 uint32_t runDay1Task2()
 {
-  const char *c_pcInputFilePath = "../day1/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day1.txt";
 
   std::vector<uint32_t> vectData;
   readListOfIntsFromFile(c_pcInputFilePath, vectData);

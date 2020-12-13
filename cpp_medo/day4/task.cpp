@@ -250,7 +250,7 @@ uint32_t getNValidPassports(bool bExtendedCheck = false)
   vectSvMandatory.push_back("ecl");
   vectSvMandatory.push_back("pid");
 
-  const char *c_pcInputFilePath = "../day4/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day4.txt";
 
   std::ifstream fileHandle(c_pcInputFilePath);
   std::string strCurrLine;

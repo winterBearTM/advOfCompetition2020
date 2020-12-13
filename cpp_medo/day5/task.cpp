@@ -37,7 +37,7 @@ uint16_t getBoardPassID(std::string strBoardPass)
 
 uint32_t runDay5Task1()
 {
-  const char *c_pcInputFilePath = "../day5/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day5.txt";
   std::ifstream fileHandle(c_pcInputFilePath);
   std::string strCurrLine;
 
@@ -60,7 +60,7 @@ uint32_t runDay5Task1()
 
 uint32_t runDay5Task2()
 {
-  const char *c_pcInputFilePath = "../day5/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day5.txt";
   std::ifstream fileHandle(c_pcInputFilePath);
   std::string strCurrLine;
 

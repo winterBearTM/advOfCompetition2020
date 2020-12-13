@@ -42,7 +42,7 @@ void parsePwdEntry(std::string strRaw,
 
 uint32_t runDay2Task1()
 {
-  const char *c_pcInputFilePath = "../day2/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day2.txt";
 
   std::ifstream fileHandle(c_pcInputFilePath);
 
@@ -78,7 +78,7 @@ uint32_t runDay2Task1()
 
 uint32_t runDay2Task2()
 {
-  const char *c_pcInputFilePath = "../day2/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day2.txt";
 
   std::ifstream fileHandle(c_pcInputFilePath);
 

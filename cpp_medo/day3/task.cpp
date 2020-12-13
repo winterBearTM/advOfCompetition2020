@@ -6,7 +6,7 @@
 
 uint32_t walkSlopes(uint32_t dwStepX, uint32_t dwStepY)
 {
-  const char *c_pcInputFilePath = "../day3/input.txt";
+  const char *c_pcInputFilePath = "../input_data/day3.txt";
   std::ifstream fileHandle(c_pcInputFilePath);
 
   std::string strCurrLine;
