@@ -1,11 +1,12 @@
 import time
-text_file = open("input.txt", "r")
+t0 = time.time()
+
+text_file = open("inputs/input_d1.txt", "r")
 lines = text_file.readlines()
 text_file.close()
 numbers = [int(line) for line in lines]
-print("Read {} numbers:".format(len(lines)))
+print("Read {} numbers:".format(len(numbers)))
 print(numbers)
-t0 = time.time()
 
 for i in range(len(numbers)):
     for j in range(len(numbers)):
@@ -16,16 +17,13 @@ for i in range(len(numbers)):
             break
     else:continue
     break
-
-
 t1 = time.time()
 
 totalTime = t1-t0
-print("elapsed: {} milliseconds for part 1.".format(totalTime))
+print("elapsed: {} seconds for part 1.".format(round(totalTime, 4)))
 
 
 t0 = time.time()
-
 for i in range(len(numbers)):
     for j in range(len(numbers)):
         for k in range(len(numbers)):
@@ -41,9 +39,6 @@ for i in range(len(numbers)):
     else:
         continue
     break
-
-
 t1 = time.time()
-
 totalTime = t1-t0
-print("elapsed: {} milliseconds for part 2.".format(totalTime))
+print("elapsed: {} seconds for part 2.".format(round(totalTime, 4)))
