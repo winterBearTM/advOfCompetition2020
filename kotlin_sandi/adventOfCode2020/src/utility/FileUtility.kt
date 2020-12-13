@@ -1,5 +1,6 @@
 package utility
 
+import data.BoardingSeat
 import data.Passport
 import data.PasswordCracker
 import java.io.File
@@ -47,6 +48,15 @@ class FileUtility {
             }
 
             list.add(passport)
+
+            return list
+        }
+
+        fun readFileBoardingSeats(filePath: String): MutableList<BoardingSeat> {
+            val list = mutableListOf<BoardingSeat>()
+            File("src/input/$filePath").readLines().forEach {
+                list.add(BoardingSeat(it))
+            }
 
             return list
         }

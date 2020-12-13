@@ -1,10 +1,7 @@
-import advents.Day1
-import advents.Day2
-import advents.Day3
-import advents.Day4
+import advents.*
 
 fun main(args: Array<String>) {
-    day4()
+    day5()
 }
 
 private fun day1() {
@@ -25,4 +22,9 @@ private fun day3() {
 private fun day4() {
     println("Day4 result first part: ${Day4().part1()}")
     println("Day4 result second part: ${Day4().part2()}")
+}
+
+private fun day5() {
+    println("Day5 result first part: ${Day5().part1()}")
+    println("Day5 result second part: ${Day5().part2()}")
 }
