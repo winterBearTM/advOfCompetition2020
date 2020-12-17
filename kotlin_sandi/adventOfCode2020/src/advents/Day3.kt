@@ -2,12 +2,16 @@ package advents
 
 import utility.FileUtility
 
-class Day3() {
-    fun part1(): Int {
+class Day3() : AdventDay() {
+    override fun part1(): Int {
         return tobogganFun(3, 1)
     }
 
-    fun part2(): Long {
+    override fun part2(): Int {
+        return -1
+    }
+
+    fun part2Long(): Long { //need to use long, answer too long
         val list = mutableListOf<Int>()
 
         list.add(tobogganFun(1,1))
@@ -58,5 +62,20 @@ class Day3() {
 
     private fun readMapFromFile(): Array<Array<Char>> {
         return FileUtility.readFile2D("day3_input")
+    }
+
+    override fun calculateResults(day: String): Long {
+        val part1TimerStart = System.currentTimeMillis()
+        print("$day result first part: ${part1()}")
+        val part1Timer = System.currentTimeMillis() - part1TimerStart
+        println(", execution time = $part1Timer ms")
+        val part2TimerStart = System.currentTimeMillis()
+        print("$day result second part: ${part2Long()}")
+        val part2Timer = System.currentTimeMillis() - part2TimerStart
+        println(", execution time = $part2Timer ms")
+        val totalTime = part1Timer + part2Timer
+        println("$day total time: $totalTime ms")
+
+        return totalTime
     }
 }

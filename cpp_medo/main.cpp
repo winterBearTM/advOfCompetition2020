@@ -3,6 +3,7 @@
 #include "day3/task.h"
 #include "day4/task.h"
 #include "day5/task.h"
+#include "day6/task.h"
 
 #include <chrono>
 #include <iostream>
@@ -43,6 +44,8 @@ int main()
   executeTask_rv32(runDay4Task2, "day4_task2");
   executeTask_rv32(runDay5Task1, "day5_task1");
   executeTask_rv32(runDay5Task2, "day5_task2");
+  executeTask_rv32(runDay6Task1, "day6_task1");
+  executeTask_rv32(runDay6Task2, "day6_task2");
 
   auto endTickFull = getTimestamp();
   auto elapsedFull_ms = getDiff_ms(endTickFull, startTickFull);

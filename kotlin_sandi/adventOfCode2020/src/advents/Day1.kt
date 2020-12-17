@@ -1,8 +1,8 @@
 package advents
 
 import utility.FileUtility.Companion.readFile
-class Day1 {
-    fun calculate2020Part1(): Int {
+class Day1: AdventDay() {
+    override fun part1(): Int {
         val list = readFile("day1_input")
 
         list.forEach {
@@ -23,7 +23,7 @@ class Day1 {
         return -1
     }
 
-    fun calculate2020Part2(): Int {
+    override fun part2(): Int {
         val list = readFile("day1_input")
 
         list.forEach {
