@@ -4,15 +4,15 @@ sez = list(map(lambda x: int(x.strip('\n')), dat.readlines()))
 #sez = [1721, 979, 366, 299, 675, 1456]
 
 # Part one
-# found = False
-# for x in sez:
-#     for y in sez[1:]:
-#         if x + y == 2020:
-#             found = True
-#             print(x * y)
-#             break
-#     if found:
-#         break
+found = False
+for x in sez:
+    for y in sez[1:]:
+        if x + y == 2020:
+            found = True
+            print(x * y)
+            break
+    if found:
+        break
 
 
 #part two
