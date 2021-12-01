@@ -1,0 +1,1 @@
+(slurp "data/day4.txt")
