@@ -19,9 +19,12 @@ int main(){
       while(getline(newfile, row)){ //read data from file object and put it into string.
          lines.push_back(stoi(row));
       }
-      for(int i = 0; i < lines.size(); ++i){
-         if(lines[i] < lines[i+1]){
-         increments++;
+      for(int i = 0; i < lines.size()-2; ++i){
+         auto a = lines[i] + lines[i+1] + lines[i+2];
+         auto b = lines[i+1] + lines[i+2] + lines[i+3];
+
+         if(a < b){
+            increments++;
          }
       }
       cout << increments << "\n";
