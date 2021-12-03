@@ -15,29 +15,34 @@ int main(){
    if (newfile.is_open()){   //checking whether the file is open
       int horizontalPos = 0;
       int depth = 0;
+      int f = 0;
+      int u = 0;
+      int d = 0;
+      string line;
       string row;
       vector<string> lines;
       while(getline(newfile, row)){ //read data from file object and put it into string.
          lines.push_back(row);
       }
 
-      for(int i = 0; i < lines.size(); ++i){
-         if(lines[i][0]=='f'){ //8
-            horizontalPos = horizontalPos + int(lines[i].at(8));
-            cout << "down for" << int(lines[i].at(8)) << endl;
-         }
-         if(lines[i][0]=='u'){
-            depth = depth - int(lines[i].at(3));
-            cout << "up for" << int(lines[i].at(3)) << endl;
-         }
-         if(lines[i][0]=='d'){
-            depth = depth + int(lines[i].at(5));
-            cout << "down for" << int(lines[i].at(5)) << endl;
+      for(int i = 0; i < lines.size(); i++){
+         line = lines[i];
+         if(line.at(0) == 'f'){ //8
+            cout << line.at(8) - '0' << endl;
+            horizontalPos = horizontalPos + (line.at(8) - '0');
+            f++;
+         }else if(line.at(0) == 'u'){
+            depth = depth - (line.at(3) - '0');
+            u++;
+         }else if(line.at(0) == 'd'){
+            depth = depth + (line.at(5) - '0');
+            d++;
+         }else{
+            cout << "unparseable line: " << lines[i] << endl;
          }
       }
-      
-
-      cout << "horizontal position: "<< horizontalPos << ", depth:" << depth << " mul:" << depth*horizontalPos << endl;
+      cout << f << " " << u << " " << d << " " << endl;
+      cout << "horizontal position: "<< horizontalPos << ", depth: " << depth << " mul: " << depth*horizontalPos << endl;
 
       newfile.close(); //close the file object.
    }else{
