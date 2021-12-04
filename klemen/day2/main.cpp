@@ -18,6 +18,7 @@ int main(){
       int f = 0;
       int u = 0;
       int d = 0;
+      int aim = 0;
       string line;
       string row;
       vector<string> lines;
@@ -28,14 +29,14 @@ int main(){
       for(int i = 0; i < lines.size(); i++){
          line = lines[i];
          if(line.at(0) == 'f'){ //8
-            cout << line.at(8) - '0' << endl;
             horizontalPos = horizontalPos + (line.at(8) - '0');
+            depth = depth + (aim * (line.at(8) - '0'));
             f++;
          }else if(line.at(0) == 'u'){
-            depth = depth - (line.at(3) - '0');
+            aim = aim - (line.at(3) - '0');
             u++;
          }else if(line.at(0) == 'd'){
-            depth = depth + (line.at(5) - '0');
+            aim = aim + (line.at(5) - '0');
             d++;
          }else{
             cout << "unparseable line: " << lines[i] << endl;
