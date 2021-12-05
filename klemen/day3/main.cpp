@@ -6,6 +6,45 @@
 
 using namespace std;
 
+
+
+string returnMostCommon(int inputs[], int size, char searched, int pos){
+   vector<string> result;
+   int ones = 0;
+   int zeros = 0;
+   for(int i = 0; i < size; i++){
+      if(inputs[i] == '0'){
+         ones++;
+      }else if(inputs[i] == '1'){
+         zeros++;
+      }else{
+         cout << "error" << endl;
+      }
+   }
+   if(ones > zeros){
+      for(int i = 0; i < size; i++){
+         if(inputs[i][pos] == '1'){
+            result.push_back(inputs[i]);
+         }
+      }
+
+   }else if(zeros > ones){
+      for(int i = 0; i < size; i++){
+         if(inputs[i][pos] == '0'){
+            result.push_back(inputs[i]);
+         }
+      }
+   }else{
+      cout << "error" << endl;
+   }
+
+
+   for(int i = 0; i < result.size(); i++){
+      cout << result[i] << endl;
+   }
+}
+
+
 int main(){
    auto start = chrono::high_resolution_clock::now();
    cout << "starting..." << "\n";
@@ -26,7 +65,6 @@ int main(){
       int gamma[12]={0,0,0,0,0,0,0,0,0,0,0,0};
       int epsilon[12]={0,0,0,0,0,0,0,0,0,0,0,0};
 
-   
   
       // Load input into memory
       while(getline(newfile, row)){ //read data from file object and put it into string.
@@ -50,7 +88,6 @@ int main(){
          string invline = "000000000000";
 
          for (int j = 0; j < line.length(); j++) {
-            cout << line[j] << endl;
 
             if(line[j] == '0'){
                invline[j] = '1';
@@ -59,7 +96,6 @@ int main(){
             }else{
                cout << "error" << endl;
             }
-
          }
 
          // Sum with zeros
