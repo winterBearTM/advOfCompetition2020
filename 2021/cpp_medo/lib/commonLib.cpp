@@ -27,6 +27,31 @@ bool readListOfIntsFromFile(std::string strPath, std::vector<uint32_t> &rvList)
   return true;
 }
 
+bool readListOfStrsFromFile(std::string strPath, std::vector<std::string> &rvList)
+{
+  std::fstream fileHandler;
+  try
+  {
+    fileHandler.open(strPath, std::ios_base::in);
+    std::string strEntry;
+    while (!fileHandler.eof())
+    {
+      fileHandler >> strEntry;
+      rvList.push_back(strEntry);
+    }
+    fileHandler.close();
+  }
+  catch (std::exception &rex)
+  {
+    if (fileHandler.is_open())
+    {
+      fileHandler.close();
+    }
+    return false;
+  }
+  return true;
+}
+
 std::chrono::time_point<std::chrono::steady_clock> getTimestamp()
 {
   std::chrono::time_point<std::chrono::steady_clock> tickNow;

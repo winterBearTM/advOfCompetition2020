@@ -1,7 +1,5 @@
 #include "task.h"
 
-#include <iostream>
-
 uint32_t findIncreases(std::vector<uint32_t> vData, uint32_t dwGrpSize)
 {
   uint32_t nIncreases = 0;
