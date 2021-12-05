@@ -1,42 +1,85 @@
 #include "task.h"
 
+#include <iostream>
 
-uint32_t findIncreases(std::vector<uint32_t> vData, bool bGroupByThree)
+uint32_t findIncreases(std::vector<uint32_t> vData, uint32_t dwGrpSize)
 {
-  uint32_t dwPrev = 0;
   uint32_t nIncreases = 0;
-  bool bFirstEntry = true;
-  for (uint32_t dwCurr : vData)
+  uint32_t dwCurrNum;
+  uint32_t dwBufSize = dwGrpSize + 1;
+  
+  uint32_t adwSumBuf[dwBufSize];
+  bool abActive[dwBufSize];
+  for (uint8_t byIdx = 0; byIdx < dwBufSize; byIdx++)
   {
-    if (bFirstEntry)
+    abActive[byIdx] = false;
+    adwSumBuf[byIdx] = 0;
+  }
+  
+  int8_t byHaltedIdx = dwGrpSize;
+  int8_t byPrevHaltedIdx;
+  
+  for (uint32_t dwIdx = 0; dwIdx <= vData.size(); dwIdx++)
+  {
+    if (dwIdx >= dwGrpSize)
     {
-      bFirstEntry = false;
+      byPrevHaltedIdx = byHaltedIdx;
+      byHaltedIdx = ++byHaltedIdx % (dwBufSize);
+      abActive[byPrevHaltedIdx] = true;
+      abActive[byHaltedIdx] = false;
+      if (dwIdx > dwGrpSize)
+      {
+        if (adwSumBuf[byHaltedIdx] > adwSumBuf[byPrevHaltedIdx])
+        {
+          nIncreases += 1;
+        }
+        adwSumBuf[byPrevHaltedIdx] = 0;
+      }
     }
     else
     {
-      if (dwCurr > dwPrev)
+      abActive[dwIdx] = true;
+    }
+    
+    if (dwIdx == vData.size())
+    {
+      break;
+    }
+    dwCurrNum = vData.at(dwIdx);
+    for (uint8_t byActiveIdx = 0; byActiveIdx < dwBufSize; byActiveIdx++)
+    {
+      if (abActive[byActiveIdx])
       {
-        nIncreases++;
+        adwSumBuf[byActiveIdx] += dwCurrNum;
       }
     }
-    dwPrev = dwCurr;
   }
+  
+  return nIncreases;
 }
 
 int32_t runDay1Task1(std::string strInputFilePath)
 {
-  uint8_t byDay = 1;
-  uint8_t byTask = 1;
-  
   std::vector<uint32_t> rvData;
   
   bool bResult = readListOfIntsFromFile(strInputFilePath, rvData);
   
   if (!bResult)
   {
-    logErr(byDay, byTask, "Error reading from input file");
     return -1;
   }
-  uint32_t dwResult = findIncreases(rvData, false);
-  return dwResult;
+  return findIncreases(rvData, 1);
+}
+
+int32_t runDay1Task2(std::string strInputFilePath)
+{
+  std::vector<uint32_t> rvData;
+  
+  bool bResult = readListOfIntsFromFile(strInputFilePath, rvData);
+  
+  if (!bResult)
+  {
+    return -1;
+  }
+  return findIncreases(rvData, 3);
 }

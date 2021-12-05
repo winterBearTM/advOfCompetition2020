@@ -27,13 +27,40 @@ bool readListOfIntsFromFile(std::string strPath, std::vector<uint32_t> &rvList)
   return true;
 }
 
-void logErr(uint8_t byDay, uint8_t byTask, std::string msg)
+std::chrono::time_point<std::chrono::steady_clock> getTimestamp()
 {
-  printf("E [DAY%02d_TASK%d]: %s", byDay, byTask, msg.c_str());
+  std::chrono::time_point<std::chrono::steady_clock> tickNow;
+  tickNow = std::chrono::steady_clock::now();
+  return tickNow;
+}
+
+uint64_t getDiff_us(std::chrono::time_point<std::chrono::steady_clock> tickA,
+                    std::chrono::time_point<std::chrono::steady_clock> tickB)
+{
+  std::chrono::microseconds elapsed_us;
+  elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(tickA - tickB);
+  
+  uint64_t qwElapsed_us = elapsed_us.count();
+  return qwElapsed_us;
+}
+
+void logErr(uint8_t byDay, uint8_t byTask, std::string strMsg)
+{
+  printf("E [DAY%02d_TASK%d]: %s\n", byDay, byTask, strMsg.c_str());
 }
 
 
-void logInf(uint8_t byDay, uint8_t byTask, std::string msg)
+void logInf(uint8_t byDay, uint8_t byTask, std::string strMsg)
 {
-  printf("I [DAY%02d_TASK%d]: %s", byDay, byTask, msg.c_str());
+  printf("I [DAY%02d_TASK%d]: %s\n", byDay, byTask, strMsg.c_str());
+}
+
+void logResult(uint8_t byDay, uint8_t byTask, int32_t dwResult, uint64_t qwDuration_us)
+{
+  printf("I [DAY%02d_TASK%d]: Result: %d (elapsed: %llu us)\n", byDay, byTask, dwResult, qwDuration_us);
+}
+
+void logResult(uint8_t byDay, uint8_t byTask, int64_t qwResult, uint64_t qwDuration_us)
+{
+  printf("I [DAY%02d_TASK%d]: Result: %lld (elapsed: %llu us)\n", byDay, byTask, qwResult, qwDuration_us);
 }
